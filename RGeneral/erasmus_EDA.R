@@ -34,4 +34,24 @@ head(filterC)
 #to view data types 
 sapply(filterC, class) #the data types are cleaned.
 
+#Statistic_Visualization
+#install packages that I probably need :
+#color palettes
+install.packages("RColorBrewer")
+library(RColorBrewer)
+#static plots
+install.packages("ggplot2")
+library(ggplot2)
+#interactive plots
+install.packages("plotly")
+library(plotly)
+#interactive web Apps
+install.packages("shiny")
+library(shiny)
+#simple visualization
 
+
+#animate / interactive visualization
+
+
+#Interactive Web Apps
