@@ -18,6 +18,7 @@ View(erasmus)
 #filter multiple value
 newF_erasmus <- erasmus[erasmus$participant_gender 
                         %in% c('Male','Female'),]
+
 #the %in% operator is used in place of writing 
 #multiple OR conditions.
 unique(newF_erasmus$participant_gender)
@@ -27,4 +28,10 @@ filterC <- newF_erasmus[, c('project_reference','participant_gender','participan
                             , 'receiving_city', 'receiving_organization','participants',
                             'sending_organization','sending_city','participant_nationality',
                             'activity_mob')]
-View(filterC)
+#View that new data form
+head(filterC)
+
+#to view data types 
+sapply(filterC, class) #the data types are cleaned.
+
+
