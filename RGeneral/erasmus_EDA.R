@@ -9,6 +9,12 @@ unique(erasmus$participant_profile)
 #in multiple columns => unique(dataset_name)
 unique(erasmus, n = 24)
 
+#Change the value (gsub() to replace all instances of 
+#the wrong encoding with the correct string)
+erasmus$sending_city <- gsub("St.Pï¿½lten", "St. Pölten",
+                             erasmus$sending_city)
+  
+View(erasmus)
 #filter multiple value
 newF_erasmus <- erasmus[erasmus$participant_gender 
                         %in% c('Male','Female'),]
