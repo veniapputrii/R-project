@@ -10,9 +10,13 @@ unique(erasmus$participant_profile)
 unique(erasmus, n = 24)
 
 #Change the value (gsub() to replace all instances of 
-#the wrong encoding with the correct string)
+#the wrong encoding with the correct string) => $sending_city
 erasmus$sending_city <- gsub("St.Pï¿½lten", "St. Pölten",
                              erasmus$sending_city)
+
+#=>$sending_city
+erasmus$receiving_city <- gsub("St.Pï¿½lten", "St. Pölten",
+                               erasmus$receiving_city)
   
 View(erasmus)
 #filter multiple value
@@ -33,7 +37,27 @@ head(filterC)
 
 #to view data types 
 sapply(filterC, class) #the data types are cleaned.
+View(filterC)
+#to show the unique values
+table(filterC$sending_city)
 
+#change the value to be lowercase => tolower() & to be uppercase => toupper()
+filterC$sending_city <- tolower(filterC$sending_city)
+table(filterC$sending_city)
+
+#group data by value types
+library("tidyverse")
+filterC %>%
+  group_by(sending_city) %>%
+  summarise(rec_count = n()) %>%
+  arrange(desc(rec_count))
+
+#🔎 new task : filter rows base on values in the sending_city column 
+#     => berlin, budapest, london, dublin, prievidza
+#show basic statistic of the data
+#install.packages("pastecs")
+#library(pastecs)
+#stat.desc(filterC)
 #Statistic_Visualization
 #install packages that I probably need :
 #color palettes
