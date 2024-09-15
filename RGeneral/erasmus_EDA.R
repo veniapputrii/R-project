@@ -45,19 +45,11 @@ table(filterC$sending_city)
 filterC$sending_city <- tolower(filterC$sending_city)
 table(filterC$sending_city)
 
-#group data by value types
-library("tidyverse")
-filterC %>%
-  group_by(sending_city) %>%
-  summarise(rec_count = n()) %>%
-  arrange(desc(rec_count))
-
-#🔎 new task : filter rows base on values in the sending_city column 
-#     => berlin, budapest, london, dublin, prievidza
 #show basic statistic of the data
 #install.packages("pastecs")
 #library(pastecs)
 #stat.desc(filterC)
+
 #Statistic_Visualization
 #install packages that I probably need :
 #color palettes
@@ -73,8 +65,30 @@ library(plotly)
 install.packages("shiny")
 library(shiny)
 #simple visualization
+#filter rows base on values in the sending_city column 
+#     => berlin, budapest, london, dublin, prievidza
+newErasmus <- filterC %>% filter(sending_city %in%
+                                   c("berlin", "budapest",
+                                     "london", "dublin", "prievidza"))
 
+View(newErasmus)
+#group data by value types
+library("tidyverse")
+groupErasmus <- newErasmus %>%
+  group_by(sending_city) %>%
+  summarise(rec_count = n()) %>%
+  arrange(desc(rec_count))
+View(groupErasmus)
 
+#make a bar chart
+ggplot(groupErasmus, aes(x = sending_city, y = rec_count, fill = sending_city)) + # fill = Colors each bar based on the city.
+  geom_bar(stat = "identity") +
+  scale_fill_manual(values = c("salmon", "lightblue", "lightblue", "lightblue", "lightblue")) +
+  labs(title = "City of sending organisation", 
+       x = "Sending City",
+       y = "Total Country sent") +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust =1)) #rotate x-axis label
 #animate / interactive visualization
 
 
