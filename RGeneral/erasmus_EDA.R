@@ -80,16 +80,30 @@ groupErasmus <- newErasmus %>%
   arrange(desc(rec_count))
 View(groupErasmus)
 
-#make a bar chart
+#make a bar chart -> for comparing which the most country has sent the students to another organization
 ggplot(groupErasmus, aes(x = sending_city, y = rec_count, fill = sending_city)) + # fill = Colors each bar based on the city.
   geom_bar(stat = "identity") +
   scale_fill_manual(values = c("salmon", "lightblue", "lightblue", "lightblue", "lightblue")) +
-  labs(title = "City of sending organisation", 
+  labs(title = "City of sending organization", 
        x = "Sending City",
        y = "Total Country sent") +
   theme_minimal() +
   theme(axis.text.x = element_text(angle = 45, hjust =1)) #rotate x-axis label
+
+#make the pie chart -> for knowing the distribution of nationality's student
+# calculate the count of each natioanility
+nCounts <- newErasmus %>%
+  group_by(participant_nationality) %>%
+  summarise(count = n()) %>%
+  filter(count > 500)
+View(nCounts)
+
+# Create the pie chart
+ggplot(nCounts, aes(x= "", y=count, fill= participant_nationality)) +
+  geom_bar(stat="identity", width=1, color="white") +
+  coord_polar("y", start=0)+
+  labs(title = "Distribution of Participant Nationality") +
+  theme_void() #remove grid and axes
+  
 #animate / interactive visualization
-
-
 #Interactive Web Apps
