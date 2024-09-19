@@ -59,6 +59,8 @@ library(RColorBrewer)
 install.packages("ggplot2")
 library(ggplot2)
 #interactive plots
+install.packages("gganimate")
+library(gganimate)
 install.packages("plotly")
 library(plotly)
 #interactive web Apps
@@ -106,4 +108,23 @@ ggplot(nCounts, aes(x= "", y=count, fill= participant_nationality)) +
   theme_void() #remove grid and axes
   
 #animate / interactive visualization
+#calculate
+genderC <- newErasmus %>%
+  group_by(participant_gender) %>%
+  summarise(count = n()) %>%
+  ungroup()
+View(genderC)
+
+genderC$time <- c(1,2)
+genderC
+#create interactive bar chart
+p <- ggplot(genderC, aes(x = participant_gender, y = count, fill= participant_gender)) +
+  geom_bar(stat = "identity") +
+  labs(title = "Gender Participant Comparison", x = "Gender", y="Total")+
+  transform_position(time, transition_length = 2, state_length=1) +
+  ease_aes('sine-in-out')
+
+p
+
+
 #Interactive Web Apps
