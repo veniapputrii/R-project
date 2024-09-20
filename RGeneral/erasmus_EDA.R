@@ -128,3 +128,55 @@ p
 
 
 #Interactive Web Apps
+ui <- fluidPage(
+  titlePanel("Interactive Erasmus Data Visualization"),
+  
+  #sidebar layout
+  sidebarLayout(
+    sidebarPanel(
+      selectInput("gender", "select Gender :",
+                  choices = unique(newErasmus$participant_gender)),
+      selectInput("city", "Select Sending City :",
+                  choices = unique(newErasmus$sending_city))
+    ),
+    
+    #main panel for displaying outputs
+    mainPanel(
+      plotlyOutput("barChart"),
+      plotlyOutput("pieChart")
+    )
+  )
+)
+
+#Define server logic
+server <- function(input, output) {
+  #bar chart for companing gender
+  output$barChart <- renderPlotly({
+    gender_data <- newErasmus %>%
+      count(participant_gender)
+    
+    p <- ggplot(gender_data, aes(x = participant_gender, y = n,
+                                 fill = participant_gender)) +
+      geom_bar(stat = "identity") +
+      ggtitle("Count of each gender")
+    
+    ggplotly(p)
+  })
+  
+  #pie chart for sending city
+  output$pieChart <-renderPlotly({
+    city_data <-newErasmus %>%
+      count(sending_city)
+    
+    p <- ggplot(city_data, aes(x= "", y=n, fill=sending_city))+
+      geom_bar(width = 1, stat ="identity") +
+      coord_polar("y") +
+      ggtitle("Distribution of sending city")
+    
+    ggplotly(p)
+  })
+    
+}
+
+#run
+shinyApp(ui = ui, server = server)
