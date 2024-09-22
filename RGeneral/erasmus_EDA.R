@@ -128,6 +128,8 @@ p
 
 
 #Interactive Web Apps
+library(dplyr)
+library(plotly)
 ui <- fluidPage(
   titlePanel("Interactive Erasmus Data Visualization"),
   
@@ -180,3 +182,4 @@ server <- function(input, output) {
 
 #run
 shinyApp(ui = ui, server = server)
+
