@@ -1,28 +1,38 @@
-install.packages("jsonlite")
-library(jsonlite)
-install.packages("languageserver")
-library(languageserver)
-install.packages("readr")  
-library(readr)
+#install.packages("quantmod")
+#install.packages("ggplot2")
 
-#task : 
-#You work in finance and one of your clients wants to understand 
-#the value of different company stocks over time. 
-#Given a dataset of stock prices, you decide to use simple moving averages 
-#(window length = 20) to tackle this task. 
-#What companies have an upward trend for the most recent data? 
-#And what companies have a downward trend?
+library(ggplot2)
+library(quantmod)
 
-#load data
-stock <- read_csv("data/stock_details_5_years.csv")
+myShare <- "IBM"
+myStartDate <- '2021-01-01'
+myEndDate <- Sys.Date()
 
-#Descriptive statistics
-#Ich will das Datum verändern, Date-Typ zum konvertieren
-stock$Date <- gsub(x=stock$Date, pattern="T.*", replacement="")
-stock$Date <- as.Date(stock$Date)
+stock <- getSymbols(myShare,
+                      
+                      from = myStartDate,
+                      to = myEndDate,
+                      warnings = FALSE,
+                      auto.assign = FALSE)
 
+stock <- data.frame(stock)
 
+#change the names in the data frame
+names(stock) <- c("Open", "High", "Low", "Close", "Volume", "Adjusted")
+stock$Date <- as.Date(rownames(stock))
 
+#Calculate 20 day moving average
+stock$SMA20 <- TTR::SMA(stock$Close, n = 20)
+
+pl <- ggplot(stock, aes(x = Date))
+pl <- pl +geom_line(aes(y = Close, color = "Close"), group = 1)
+pl <- pl + geom_line(aes(y = SMA20, color = "SMA20"), group = 1)
+pl <- pl + theme_minimal()
+
+pl <- pl + theme(legend.position = "top")
+pl <- pl + labs(title ="Moving averages")
+pl <- pl + labs(color="Prices")
+pl
 
 
 
