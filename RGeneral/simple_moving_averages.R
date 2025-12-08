@@ -32,7 +32,7 @@ pl <- pl + theme_minimal()
 pl <- pl + theme(legend.position = "top")
 pl <- pl + labs(title ="Moving averages")
 pl <- pl + labs(color="Prices")
-pl
 
+print(pl)
 
 
