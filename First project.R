@@ -21,7 +21,7 @@ head(data)
 sum(is.na(data))
 
 #✌ ️Data Manipulation
-#string to numeric
+#transfrom string to numeric
 data$Sales <- as.numeric(data$Sales)
 data$AdBudget <- as.numeric(data$AdBudget)
 data$GDP <- as.numeric(data$GDP)
