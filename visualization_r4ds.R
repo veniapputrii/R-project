@@ -12,3 +12,6 @@ ggplot(
   geom_point()+
   geom_smoooth(method = 'lm')
 
+
+library(tidyverse)
+mpg
