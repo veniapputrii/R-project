@@ -20,3 +20,7 @@ and.learning.about.statistics
 IaM.so_exciteD
 
 rock <- 6^7
+Rock
+#error
+rockr
+#error
