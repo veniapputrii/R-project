@@ -18,3 +18,5 @@ this_is_the_time
 forLearningR
 and.learning.about.statistics
 IaM.so_exciteD
+
+rock <- 6^7
