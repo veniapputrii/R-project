@@ -30,3 +30,7 @@ seq(from = 1, to = 10)
 
 seq (1,10)
 #same result as [1]
+
+#task
+my_variable <- 19
+my_variable
