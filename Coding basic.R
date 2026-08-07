@@ -34,3 +34,5 @@ seq (1,10)
 #task
 my_variable <- 19
 my_variable
+
+x <- "hello world"
