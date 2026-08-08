@@ -38,3 +38,10 @@ my_variable
 x <- "hello world"
 > x <- "hello 
 +
+
+
+
+library(tidyverse)
+ggplot(data = mpg) +
+  geom_point(maping = aes(x = displ, y = hwy)) +
+  geom_smooth(method="lm")
