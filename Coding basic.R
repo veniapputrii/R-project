@@ -45,3 +45,20 @@ library(tidyverse)
 ggplot(data = mpg) +
   geom_point(maping = aes(x = displ, y = hwy)) +
   geom_smooth(method="lm")
+
+
+library(tidyverse)
+#1.6 
+ggplot(penguins, aes(x = flipper_len, y = body_mass)) +
+  geom_point()
+ggsave(filename = "penguin-plot.png")
+
+#exercise
+data <- mpg
+my_bar_plot <- ggplot(data, aes(x = class)) +
+  geom_bar()
+my_scatter_plot <- ggplot(mpg, aes(x = cty, y=hwy)) +
+  geom_point()
+ggsave(filename ="mpg-plot.png", plot = my_bar_plot)
+
+#both of them can save the images because it utilize "ggsave"
