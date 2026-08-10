@@ -1,2 +1,3 @@
 library(nycflight13)
 library(tidyverse)
+flights #shows the flightstable
