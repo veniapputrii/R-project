@@ -4,3 +4,7 @@ flights
 #shows the flightstable
 glimpse(flights)
 #shows all columns
+
+#combining multiple verbs
+flights |>
+  filter(dest == "IAH") |>
