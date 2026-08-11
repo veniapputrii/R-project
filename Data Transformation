@@ -1,3 +1,6 @@
 library(nycflight13)
 library(tidyverse)
-flights #shows the flightstable
+flights 
+#shows the flightstable
+glimpse(flights)
+#shows all columns
