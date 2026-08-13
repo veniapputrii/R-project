@@ -12,3 +12,7 @@ flights |>
   summarize(
     arr_delay = mean(arr_delay, na.rm= TRUE)
 )
+
+#filter the values
+flights |>
+  filter(dep_delay > 120)
