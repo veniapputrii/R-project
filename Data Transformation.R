@@ -1,0 +1,29 @@
+library(nycflights13)
+library(tidyverse)
+flights 
+#shows the flightstable
+glimpse(flights)
+#shows all columns
+
+#combining multiple verbs
+flights |>
+  filter(dest == "IAH") |>
+  group_by(year,month, day) |>
+  summarize(
+    arr_delay = mean(arr_delay, na.rm= TRUE)
+)
+
+#filter the values
+flights |> #example : we try to find all flights that departed more than 120 minutes
+  filter(dep_delay > 120) # only take the value where dep_delay is greater than 120
+
+#symbols :
+#> (greater than)
+#>= (greater than or equal to)
+#< (less than)
+# <= (less than or equal to)
+#== (equal to)
+#!= (not equal to)
+# $ / , (and)
+# | (or)
+
