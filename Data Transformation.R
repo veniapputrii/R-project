@@ -27,3 +27,6 @@ flights |> #example : we try to find all flights that departed more than 120 min
 # $ / , (and)
 # | (or)
 
+#flights that departed on January 1
+flights |> 
+  filter(month == 1 & day == 1)
