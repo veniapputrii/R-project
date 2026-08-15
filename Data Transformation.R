@@ -1,3 +1,4 @@
+install.packages("nycflights13")
 library(nycflights13)
 library(tidyverse)
 flights 
@@ -30,3 +31,5 @@ flights |> #example : we try to find all flights that departed more than 120 min
 #flights that departed on January 1
 flights |> 
   filter(month == 1 & day == 1)
+
+#flights depart in january or february
