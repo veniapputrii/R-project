@@ -16,3 +16,5 @@ flights |>
 #filter the values
 flights |>
   filter(dep_delay > 120) # only take the value where dep_delay is higher then 120
+fligths |>
+  arrange(year, month, day, dep_time)
