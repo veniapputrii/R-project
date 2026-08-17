@@ -35,3 +35,6 @@ flights |>
 #flights depart in january or february
 flights |>
   filter(month == 1 | month == 2)
+#another shotcut for combining == and | -> %n%
+flights |>
+  filter(month %N% c(1,2)) 
