@@ -33,3 +33,5 @@ flights |>
   filter(month == 1 & day == 1)
 
 #flights depart in january or february
+flights |>
+  filter(month == 1 | month == 2)
