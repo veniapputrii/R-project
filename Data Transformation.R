@@ -37,4 +37,7 @@ flights |>
   filter(month == 1 | month == 2)
 #another shotcut for combining == and | -> %n%
 flights |>
-  filter(month %N% c(1,2)) 
+  filter(month %in% c(1,2)) 
+jan12 <- flights |>
+  filter(month %in% c(2,4))
+jan12
