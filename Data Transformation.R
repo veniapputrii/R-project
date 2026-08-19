@@ -41,3 +41,7 @@ flights |>
 jan12 <- flights |>
   filter(month %in% c(2,4))
 jan12
+
+#common mistakes
+fligts |>
+  filter(month = 1) # use = instead of ==
