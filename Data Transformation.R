@@ -45,3 +45,6 @@ jan12
 #common mistakes
 fligts |>
   filter(month = 1) # use = instead of ==
+
+flights  |>
+  arrange(year, month, day, dep_time)
