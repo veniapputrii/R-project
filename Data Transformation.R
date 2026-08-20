@@ -46,5 +46,6 @@ jan12
 fligts |>
   filter(month = 1) # use = instead of ==
 
-flights  |>
+#arrange
+flights |>
   arrange(year, month, day, dep_time)
