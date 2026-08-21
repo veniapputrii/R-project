@@ -46,6 +46,10 @@ jan12
 fligts |>
   filter(month = 1) # use = instead of ==
 
-#arrange
+#arrange (shows the earliest time/date/value)
 flights |>
   arrange(year, month, day, dep_time)
+
+#distinct() -> remove duplicate rows, if any
+flights |>
+  arrange(desc(dep_delay))
