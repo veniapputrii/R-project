@@ -50,6 +50,11 @@ fligts |>
 flights |>
   arrange(year, month, day, dep_time)
 
-#distinct() -> remove duplicate rows, if any
+#arrange(desc()) -> re-order the data frame based on that column in descending(big-to-small) order.
 flights |>
   arrange(desc(dep_delay))
+
+#distinct() -> remove duplicate rows, if any
+flights |>
+  distinct()
+
