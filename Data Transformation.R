@@ -58,3 +58,6 @@ flights |>
 flights |>
   distinct()
 
+#distinct() -> find all unique origin and destination pairs
+flights |>
+  distinct(origin, dest)
