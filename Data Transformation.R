@@ -43,7 +43,7 @@ jan12 <- flights |>
 jan12
 
 #common mistakes
-fligts |>
+flights |>
   filter(month = 1) # use = instead of ==
 
 #arrange (shows the earliest time/date/value)
@@ -61,3 +61,7 @@ flights |>
 #distinct() -> find all unique origin and destination pairs
 flights |>
   distinct(origin, dest)
+
+#distinct() -> (alternative) for keeping the other columns after filtering unique rows
+flights |>
+  distinct(origin, dest, .keep_all = TRUE)
