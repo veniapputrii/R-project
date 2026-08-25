@@ -65,3 +65,7 @@ flights |>
 #distinct() -> (alternative) for keeping the other columns after filtering unique rows
 flights |>
   distinct(origin, dest, .keep_all = TRUE)
+
+#count
+flights |>
+  count(origin, dest, sort = TRUE)
