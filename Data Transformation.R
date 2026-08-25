@@ -66,6 +66,6 @@ flights |>
 flights |>
   distinct(origin, dest, .keep_all = TRUE)
 
-#count
+#count -> to find the number of these occurrences
 flights |>
   count(origin, dest, sort = TRUE)
