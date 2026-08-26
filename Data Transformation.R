@@ -71,3 +71,4 @@ flights |>
   count(origin, dest, sort = TRUE
 
 #exercises
+#find all flights that meet the condition :
