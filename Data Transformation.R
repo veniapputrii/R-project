@@ -75,3 +75,6 @@ flights |>
 glimpse(flights)
 flights |>
   filter(arr_delay > 120)
+
+flights |>
+  filter(dest == "IAH" & dest == "HOU")
