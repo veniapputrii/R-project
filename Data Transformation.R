@@ -75,6 +75,8 @@ flights |>
 glimpse(flights)
 flights |>
   filter(arr_delay > 120)
-
+#flew to Houston
 flights |>
   filter(dest == "IAH" & dest == "HOU")
+#departed in summer (july, august, and september)
+
