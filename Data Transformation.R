@@ -79,4 +79,5 @@ flights |>
 flights |>
   filter(dest == "IAH" & dest == "HOU")
 #departed in summer (july, august, and september)
-
+flights |>
+  filter(month %n% c(7,8,9))
