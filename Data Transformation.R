@@ -81,3 +81,10 @@ flights |>
 #departed in summer (july, august, and september)
 flights |>
   filter(month %n% c(7,8,9))
+
+flights |>
+  filter(dest == "IAH") |> 
+  group_by(year, month, day) |> 
+  summarize(
+    arr_delay = mean(arr_delay, na.rm = TRUE)
+  )
