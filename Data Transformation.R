@@ -91,3 +91,5 @@ flights |>
 
 flights |>
   filter(month %in% c(4,5)
+flights |>
+         arrange(year, month, day, dep+time)
