@@ -78,3 +78,7 @@ flights |>
 
 flights |>
   filter(dest == 'IAH' & dest == 'HOU')
+
+
+flights |>
+distinct(origin, dest, .keep_all = TRUE)
