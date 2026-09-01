@@ -88,3 +88,6 @@ flights |>
   summarize(
     arr_delay = mean(arr_delay, na.rm = TRUE)
   )
+
+flights |>
+  filter(month %in% c(4,5)
