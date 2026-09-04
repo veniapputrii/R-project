@@ -78,3 +78,6 @@ flights |>
 
 flights |>
   filter(dest == 'IAH' & dest == 'HOU')
+
+flights |>
+  relocate(time_hour, air_time)
