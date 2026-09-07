@@ -78,3 +78,11 @@ flights |>
 
 flights |>
   filter(dest == 'IAH' & dest == 'HOU')
+
+flights |> 
+  mutate(
+    gain = dep_delay - arr_delay,
+    hours = air_time / 60,
+    gain_per_hour = gain / hours,
+    .keep = "used"
+  )
