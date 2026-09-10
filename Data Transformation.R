@@ -78,3 +78,9 @@ flights |>
 
 flights |>
   filter(dest == 'IAH' & dest == 'HOU')
+
+fligths |>
+mutate(
+  gain = dep_delay - arr_delay,
+  speed = distance / air_time * 60
+  )
