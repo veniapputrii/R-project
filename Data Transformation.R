@@ -89,5 +89,12 @@ flights |>
   mutate(
     gain = dep_delay - arr_delay,
     speed = distance / air_time * 60,
-    .before =1
+    .before =1 #indicate that .before is an argument to the function, not a name of new variable
+    )
+
+flights |>
+  mutate(
+    gain = dep_delay - arr_delay,
+    speed = distance / air_time * 60,
+    .after = day
     )
