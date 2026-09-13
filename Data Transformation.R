@@ -98,3 +98,11 @@ flights |>
     speed = distance / air_time * 60,
     .after = day
     )
+
+flights |> 
+  mutate(
+    gain = dep_delay - arr_delay,
+    hours = air_time / 60,
+    gain_per_hour = gain / hours,
+    .keep = "used"
+  )
