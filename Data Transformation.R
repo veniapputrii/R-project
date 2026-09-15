@@ -106,3 +106,6 @@ flights |>
     gain_per_hour = gain / hours,
     .keep = "used"
   )
+
+flights |> 
+  group_by(month)
