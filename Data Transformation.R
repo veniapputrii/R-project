@@ -115,3 +115,6 @@ flights |>
     gain = dep_delay - arr_delay,
     speed = distance / air_time * 60
   )
+
+flights |> 
+  select(year, month, day)
