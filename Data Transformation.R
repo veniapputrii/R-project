@@ -118,3 +118,6 @@ flights |>
 
 flights |> 
   select(year, month, day)
+
+flights |>
+relocate(time_hour, air_time)
