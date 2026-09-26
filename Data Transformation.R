@@ -128,3 +128,10 @@ flights |>
   relocate(year:dep_time, .after = time_hour)
 flights |> 
   relocate(starts_with("arr"), .before = dep_time)
+
+#pipe
+flights |> 
+  filter(dest == "IAH") |> 
+  mutate(speed = distance / air_time * 60) |> 
+  select(year:day, dep_time, carrier, flight, speed) |> 
+  arrange(desc(speed))
