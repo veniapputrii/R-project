@@ -79,59 +79,8 @@ flights |>
 flights |>
   filter(dest == 'IAH' & dest == 'HOU')
 
-fligths |>
-mutate(
-  gain = dep_delay - arr_delay,
-  speed = distance / air_time * 60
-  )
-
 flights |>
-  mutate(
-    gain = dep_delay - arr_delay,
-    speed = distance / air_time * 60,
-    .before =1 #indicate that .before is an argument to the function, not a name of new variable
-    )
-
-flights |>
-  mutate(
-    gain = dep_delay - arr_delay,
-    speed = distance / air_time * 60,
-    .after = day
-    )
-
-flights |> 
-  mutate(
-    gain = dep_delay - arr_delay,
-    hours = air_time / 60,
-    gain_per_hour = gain / hours,
-    .keep = "used"
-  )
-
-flights |> 
-  group_by(month)
-
-flights |> 
-  mutate(
-    gain = dep_delay - arr_delay,
-    speed = distance / air_time * 60
-  )
-flights |> 
-  rename(tail_num = tailnum)
-
-flights |> 
-  select(year, month, day)
-
-flights |>
-relocate(time_hour, air_time)
-
-flights |> 
-  relocate(year:dep_time, .after = time_hour)
-flights |> 
-  relocate(starts_with("arr"), .before = dep_time)
-
-#pipe
-flights |> 
-  filter(dest == "IAH") |> 
-  mutate(speed = distance / air_time * 60) |> 
-  select(year:day, dep_time, carrier, flight, speed) |> 
+  filter(dest == "IAH") |>
+  mutate(speed = distance / air_time * 60) |>
+  select(year:day, dep_time, carrier, flight, speed) |>
   arrange(desc(speed))
