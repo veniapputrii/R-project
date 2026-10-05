@@ -84,3 +84,6 @@ flights |>
   mutate(speed = distance / air_time * 60) |>
   select(year:day, dep_time, carrier, flight, speed) |>
   arrange(desc(speed))
+
+#being able to read a data
+library(tidyverse)
